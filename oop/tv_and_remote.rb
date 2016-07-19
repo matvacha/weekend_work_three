@@ -1,3 +1,81 @@
+class Remote
+  def toggle_power
+    if @power == true
+      @power = false
+    else
+      @power = true
+    end
+  end
+
+  def increment_volume
+    @volume + 1
+  end
+
+  def decrement_volume
+    @volume - 1
+  end
+
+  def set_channel(x)
+    @channel = x
+  end
+end
+
+class Tv < Remote
+  def initialize(attributes)
+    @power = attributes[:power]
+    @volume = attributes[:volume]
+    @channel = attributes[:channel]
+  end
+end
+
+puts "TESTING class..."
+puts
+
+y = Tv.new(power: true, volume: 1, channel: 52)
+y.toggle_power
+
+puts "Your method returned:"
+puts y.toggle_power
+
+if y.toggle_power == false
+  puts "PASS!"
+else
+  puts "F"
+end
+
+y.increment_volume
+
+puts "Your method returned:"
+puts y.increment_volume
+
+if y.increment_volume == 2
+  puts "PASS!"
+else
+  puts "F"
+end
+
+y.decrement_volume
+
+puts "Your method returned:"
+puts y.decrement_volume
+
+if y.decrement_volume == 0
+  puts "PASS!"
+else
+  puts "F"
+end
+
+y.set_channel(50)
+
+puts "Your method returned:"
+puts y.set_channel(50)
+
+if y.set_channel(50) == 50
+  puts "PASS!"
+else
+  puts "F"
+end
+
 # In this exercise, you will be creating two classes AND the driver code to test them.
 # You will create a Tv class and a Remote class. 
 

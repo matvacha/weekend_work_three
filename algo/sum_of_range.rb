@@ -3,7 +3,15 @@
 # numbers, inclusive.
 
 def sum_of_range(array)
-
+  if array[1] - array[0] < 0
+    range = (array[1]..array[0])
+    range = range.to_a
+    range.inject(0){|sum,x| sum + x }
+  else
+    range = (array[0]..array[1])
+    range = range.to_a
+    range.inject(0){|sum,x| sum + x }
+  end
 end
 
 # Driver code - don't touch anything below this line.

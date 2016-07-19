@@ -3,7 +3,9 @@
 # the first string, and false otherwise.
 
 def mutation?(base_word, mutation)
-
+  mutation_array = mutation.chars.to_a
+  base_word_array = base_word.chars.to_a
+  (mutation_array & base_word_array) == mutation_array
 end
 
 # Driver code - don't touch anything below this line.
